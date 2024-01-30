@@ -26,18 +26,16 @@ public class OrdersWriter {
             // For each product in an order
             for (int j = 0; j < order.getProductsCount(); j++) {
                 Product product = order.getProduct(j);
-                int productSize = product.getSize();
-                String productColor = getColorFor(product.getColor());
 
                 stringBuilder.append("{\"code\": \"")
                         .append(product.getCode())
                         .append("\", \"color\": \"")
-                        .append(productColor)
+                        .append(product.getColorString())
                         .append("\", ");
 
-                if (productSize != -1) {
+                if (product.getSize() != -1) {
                     stringBuilder.append("\"size\": \"")
-                            .append(getSizeFor(productSize))
+                            .append(product.getSizeString())
                             .append("\", ");
                 }
 
@@ -64,26 +62,5 @@ public class OrdersWriter {
         }
 
         return stringBuilder.append("]}").toString();
-    }
-
-    private String getSizeFor(int size) {
-        return switch (size) {
-            case 1 -> "XS";
-            case 2 -> "S";
-            case 3 -> "M";
-            case 4 -> "L";
-            case 5 -> "XL";
-            case 6 -> "XXL";
-            default -> "Invalid Size";
-        };
-    }
-
-    private String getColorFor(int color) {
-        return switch (color) {
-            case 1 -> "blue";
-            case 2 -> "red";
-            case 3 -> "yellow";
-            default -> "no color";
-        };
     }
 }
