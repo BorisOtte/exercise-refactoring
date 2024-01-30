@@ -50,16 +50,17 @@ public class OrdersWriter {
 
             //Get rid of something?
             if (order.getProductsCount() > 0) {
-                stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
+                int length = stringBuilder.length();
+                stringBuilder.delete(length - 2, length);
             }
 
-            stringBuilder.append("]");
-            stringBuilder.append("}, ");
+            stringBuilder.append("]}, ");
         }
 
         //Get rid of something?
         if (orders.getOrdersCount() > 0) {
-            stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
+            int length = stringBuilder.length();
+            stringBuilder.delete(length - 2, length);
         }
 
         return stringBuilder.append("]}").toString();
