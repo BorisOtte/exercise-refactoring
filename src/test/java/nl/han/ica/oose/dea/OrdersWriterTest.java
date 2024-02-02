@@ -63,7 +63,7 @@ class OrdersWriterTest {
     @Test
     void oneOrderWithOneProductReturnsCorrectJsonString() {
         // Arrange
-        order111.AddProduct(new Product("Shirt", ProductColor.BLUE, ProductSize.M, 2.99, "TWD"));
+        order111.AddProduct(new Product("Shirt", 1, 3, 2.99, "TWD"));
 
         var ordersWriter = new OrdersWriter(orders);
 
@@ -79,7 +79,7 @@ class OrdersWriterTest {
     @Test
     void oneOrderWithOneProductNoSizeReturnsCorrectJsonString() {
         // Arrange
-        order111.AddProduct(new Product("Pot", ProductColor.RED, ProductSize.INVALID, 16.50, "SGD"));
+        order111.AddProduct(new Product("Pot", 2, -1, 16.50, "SGD"));
 
         var ordersWriter = new OrdersWriter(orders);
 
@@ -96,7 +96,7 @@ class OrdersWriterTest {
     void oneOrderWithColorOneAndSizeOneTurnsUpBlueinXSInJsonString()
     {
         // Arrange
-        order111.AddProduct(new Product("Shirt", ProductColor.BLUE, ProductSize.XS, 2.99, "TWD"));
+        order111.AddProduct(new Product("Shirt", 1, 1, 2.99, "TWD"));
 
         var ordersWriter = new OrdersWriter(orders);
 
@@ -113,7 +113,7 @@ class OrdersWriterTest {
     void oneOrderWithColorTwoAndSizeTwoTurnsUpRedinSInJsonString()
     {
         // Arrange
-        order111.AddProduct(new Product("Shirt", ProductColor.RED, ProductSize.S, 2.99, "TWD"));
+        order111.AddProduct(new Product("Shirt", 2, 2, 2.99, "TWD"));
 
         var ordersWriter = new OrdersWriter(orders);
 
@@ -130,7 +130,7 @@ class OrdersWriterTest {
     void oneOrderWithColorThreeAndSizeThreeTurnsUpYellowinMInJsonString()
     {
         // Arrange
-        order111.AddProduct(new Product("Shirt", ProductColor.YELLOW, ProductSize.M, 2.99, "TWD"));
+        order111.AddProduct(new Product("Shirt", 3, 3, 2.99, "TWD"));
 
         var ordersWriter = new OrdersWriter(orders);
 
@@ -147,10 +147,10 @@ class OrdersWriterTest {
     void multipleOrdersWithDifferentSizesAndDifferentColorsReturnsCorrectJsonString()
     {
         // Arrange
-        order111.AddProduct(new Product("Shirt", ProductColor.NO_COLOR, ProductSize.L, 2.99, "TWD"));
-        order111.AddProduct(new Product("Shirt", ProductColor.NO_COLOR, ProductSize.XL, 2.99, "TWD"));
-        order111.AddProduct(new Product("Shirt", ProductColor.NO_COLOR, ProductSize.XXL, 2.99, "TWD"));
-        order111.AddProduct(new Product("Shirt", ProductColor.NO_COLOR, ProductSize.INVALID, 2.99, "TWD"));
+        order111.AddProduct(new Product("Shirt", 4, 4, 2.99, "TWD"));
+        order111.AddProduct(new Product("Shirt", 5, 5, 2.99, "TWD"));
+        order111.AddProduct(new Product("Shirt", 6, 6, 2.99, "TWD"));
+        order111.AddProduct(new Product("Shirt", 7, 7, 2.99, "TWD"));
 
         var ordersWriter = new OrdersWriter(orders);
 

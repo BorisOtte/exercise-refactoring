@@ -30,13 +30,12 @@ public class OrdersWriter {
                 stringBuilder.append("{\"code\": \"")
                         .append(product.getCode())
                         .append("\", \"color\": \"")
-                        .append(product.getColor())
+                        .append(product.getColorString())
                         .append("\", ");
 
-                //TODO: check of dit gewenst is:
-                if (product.getSize() != null) {
+                if (product.getSize() != -1) {
                     stringBuilder.append("\"size\": \"")
-                            .append(product.getSize())
+                            .append(product.getSizeString())
                             .append("\", ");
                 }
 
